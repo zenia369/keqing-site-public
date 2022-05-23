@@ -1,0 +1,33 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "Keqing site",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "Keqing",
+    "js",
+    "site",
+    "keqing"
+  ],
+  "author": "Kushnir E.",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.6.1",
+    "dotenv": "^16.0.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2",
+    "firebase": "^9.6.1",
+    "firebase-admin": "^10.0.2",
+    "image-to-base64": "^2.2.0",
+    "node-fetch": "^2.6.6"
+  }
+}

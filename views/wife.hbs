@@ -1,0 +1,33 @@
+
+<header class="first-screen screen" id="first-screen">
+    {{>header-wife}}
+    <div class="first-screen__video">
+        <div class="first-screen__video__wrapp">
+            <button class="first-screen__video__wrapp__btn">подивитись відео</button>
+            <button class="first-screen__video__wrapp__btn first-screen__video-wrappBtn__next">Всі фото</button>
+        </div>
+    </div>
+    
+</header>
+
+<main>
+    {{> video-box-wife}}
+    <section class="three-screen screen" id="three-screen">
+        <div  class="three-screen__wrapp__btn">
+            <button class="first-screen__video__wrapp__btn three-screen-upBtn">назад</button>
+        </div>
+
+
+        <ul id="ul">
+            {{#each images}}
+                <li>
+                    <a href="{{this.newLink}}" target="_blank">
+                        <img  src="{{this.link}}"  alt="keqing-site-image">
+                    </a>
+                </li>   
+            {{/each}}
+        </ul>
+
+    </section>
+</main>
+
