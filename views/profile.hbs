@@ -1,37 +1,3 @@
-<!DOCTYPE html>
-<html lang="ukr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link rel="stylesheet" href="./pages/userProfile/styles/style.css" type="text/css" />
-  </head>
-  <body>
     <nav class="header">
       <div class="containerBar">
         <a href="/" class="containerBar-home"><span>Home page:/Profile</span></a>
@@ -46,7 +12,10 @@
     <main>
       <section class="main">
         <div class="main__first__section">
-          <div class="main__first__section__card">
+          <div 
+                class="main__first__section__card"
+                style="background-image: url({{user.card}});"
+            >
             <div class="main__first__section__card__settings" id="settings-card">
               <form id="form-card">
                 <input id="newName" type="text" placeholder="New name" />
@@ -86,91 +55,31 @@
                 >
                   <div
                     class="main__first__section__card__wrapper__image-wrapper__border-content"
+                    style="background-image: url({{user.avatart}});"
                   ></div>
                 </div>
               </div>
             </div>
             <ul class="main__first__section__card__wrapper__info">
-              <li>Your name: <span id="name"></span></li>
-              <li>ID: <span id="UID"></span></li>
-              <li>City: <span id="city"></span></li>
-              <li>Elemental: <span id="elemental"></span></li>
+              <li>Your name: <span id="name">{{user.name}}</span></li>
+              <li>ID: <span id="UID">{{user.id}}</span></li>
+              <li>City: <span id="city">{{user.city}}</span></li>
+              <li>Elemental: <span id="elemental">{{user.element}}</span></li>
             </ul>
           </div>
           <div class="main__first__section__info">
             <ul class="main__first__section__info__wrapper" id="characters">
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Albedo_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Amber_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Arataki_Itto_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Barbara_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Beidou_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Bennett_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Chongyun_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
-              <li class="main__first__section__info__wrapper__card">
-                <div 
-                  class="main__first__section__info__wrapper__card__main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Diluc_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="#" />
-                </div>
-                <p class="main__first__section__info__wrapper__card__footer">character</p>
-              </li>
+                {{#each user.stand}} 
+                    <li class="main__first__section__info__wrapper__card">
+                        <div 
+                        class="main__first__section__info__wrapper__card__main"
+                        style="background-image: url({{this.images.[74]}});"
+                        >
+                        <img src="{{this.element}}" alt="Element {{this.name}}" />
+                        </div>
+                        <p class="main__first__section__info__wrapper__card__footer">{{this.name}}</p>
+                    </li>
+                {{/each}}
             </ul>
           </div>
         </div>
@@ -368,85 +277,28 @@
         <div class="cart-characters-wrapp__cards">
           <div class="cart-characters-wrapp__cards__user">
             <ul>
-              <li class="cart-characters-wrapp__cards__user-item">
-                <img src="./pages/userProfile/images/Characters/106/Albedo.png" alt="Albedo">
-              </li>
-              <li class="cart-characters-wrapp__cards__user-item">
-                <img src="./pages/userProfile/images/Characters/106/Amber.png" alt="Amber">
-              </li>
-              <li class="cart-characters-wrapp__cards__user-item">
-                <img src="./pages/userProfile/images/Characters/106/Ayaka.png" alt="Ayaka">
-              </li>
-              <li class="cart-characters-wrapp__cards__user-item">
-                <img src="./pages/userProfile/images/Characters/106/Ayato.png" alt="Ayato">
-              </li>
-              <li class="cart-characters-wrapp__cards__user-item">
-                <img src="./pages/userProfile/images/Characters/106/Barbara.png" alt="Barbara">
-              </li>
+                {{#each charactersList}}
+                    <li class="cart-characters-wrapp__cards__user-item">
+                        <img src={{this.images.[106]}} alt="For card {{this.name}}">
+                    </li>   
+                {{/each}}
             </ul>
           </div>
           <div class="cart-characters-wrapp__cards__characters">
             <ul>
-              <li class="cart-characters-wrapp__cards__characters__card">
-                <div 
-                  class="cart-characters-wrapp__cards__characters__card-main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Albedo_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="Character item" />
-                </div>
-                <p class="cart-characters-wrapp__cards__characters__card-footer">character</p>
-              </li>
-              <li class="cart-characters-wrapp__cards__characters__card">
-                <div 
-                  class="cart-characters-wrapp__cards__characters__card-main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Albedo_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="Character item" />
-                </div>
-                <p class="cart-characters-wrapp__cards__characters__card-footer">character</p>
-              </li>
-              <li class="cart-characters-wrapp__cards__characters__card">
-                <div 
-                  class="cart-characters-wrapp__cards__characters__card-main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Albedo_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="Character item" />
-                </div>
-                <p class="cart-characters-wrapp__cards__characters__card-footer">character</p>
-              </li>
-              <li class="cart-characters-wrapp__cards__characters__card">
-                <div 
-                  class="cart-characters-wrapp__cards__characters__card-main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Albedo_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="Character item" />
-                </div>
-                <p class="cart-characters-wrapp__cards__characters__card-footer">character</p>
-              </li>
-              <li class="cart-characters-wrapp__cards__characters__card">
-                <div 
-                  class="cart-characters-wrapp__cards__characters__card-main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Albedo_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="Character item" />
-                </div>
-                <p class="cart-characters-wrapp__cards__characters__card-footer">character</p>
-              </li>
-              <li class="cart-characters-wrapp__cards__characters__card">
-                <div 
-                  class="cart-characters-wrapp__cards__characters__card-main"
-                  style="background-image: url(./pages/userProfile/images/Characters/74/Character_Albedo_Thumb.webp);"
-                >
-                  <img src="./pages/userProfile/images/Elements/Element_Cryo.png" alt="Character item" />
-                </div>
-                <p class="cart-characters-wrapp__cards__characters__card-footer">character</p>
-              </li>
+                {{#each charactersList}}
+                    <li class="cart-characters-wrapp__cards__characters__card">
+                        <div 
+                            class="cart-characters-wrapp__cards__characters__card-main"
+                            style="background-image: url({{this.images.[74]}});"
+                        >
+                        <img src={{this.element}} alt="Element {{this.name}}" />
+                        </div>
+                        <p class="cart-characters-wrapp__cards__characters__card-footer">{{this.name}}</p>
+                    </li>   
+                {{/each}}
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <script src="./pages/userProfile/js/modules/helpers.js"></script>
-    <script src="./pages/userProfile/js/main.js"></script>
-  </body>
-</html>

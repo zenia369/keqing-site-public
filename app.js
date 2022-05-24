@@ -10,6 +10,7 @@ import exphbs from 'express-handlebars';
 //Routes
 import siteRouter from './routers/router.js';
 import wifeRouter from './routers/router.wife.modules.js';
+import profileRouter from './routers/router.userProfile.modules.js';
 import errorRouter from './routers/error.js';
 
 //API
@@ -36,6 +37,7 @@ app.set('views', './views');
 app.use(express.json());
 app.use(siteRouter);
 app.use(wifeRouter);
+app.use(profileRouter);
 
 app.use(api)
 
