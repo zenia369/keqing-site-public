@@ -141,10 +141,10 @@ main {
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
           box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
-  -webkit-transition: -webkit-box-shadow .5s ease-in-out;
-  transition: -webkit-box-shadow .5s ease-in-out;
-  transition: box-shadow .5s ease-in-out;
-  transition: box-shadow .5s ease-in-out, -webkit-box-shadow .5s ease-in-out;
+  -webkit-transition: background-image 2s linear, -webkit-box-shadow .5s ease-in-out;
+  transition: background-image 2s linear, -webkit-box-shadow .5s ease-in-out;
+  transition: box-shadow .5s ease-in-out, background-image 2s linear;
+  transition: box-shadow .5s ease-in-out, background-image 2s linear, -webkit-box-shadow .5s ease-in-out;
 }
 
 .main__first__section__card:hover {
@@ -359,8 +359,8 @@ main {
 }
 
 .main__first__section__info__wrapper__card {
-  height: 6rem;
-  width: 5rem;
+  height: 95px;
+  width: 75px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -405,7 +405,7 @@ main {
   width: 25%;
 }
 
-.main__first__section__info__wrapper__card__main::after {
+.main__first__section__info__wrapper__card__main::before {
   content: '';
   display: block;
   position: absolute;
@@ -421,7 +421,7 @@ main {
 .main__first__section__info__wrapper__card__footer {
   background-color: #f7f3eb;
   color: #1a1a1a;
-  padding: 5px 10px;
+  padding: 5px 1px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: 10px;
@@ -806,8 +806,8 @@ main {
 }
 
 .cart-characters-wrapp__cards__characters__card {
-  height: 6rem;
-  width: 5rem;
+  height: 95px;
+  width: 75px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -857,7 +857,7 @@ main {
   width: 25%;
 }
 
-.cart-characters-wrapp__cards__characters__card-main::after {
+.cart-characters-wrapp__cards__characters__card-main::before {
   content: '';
   display: block;
   position: absolute;
@@ -873,7 +873,7 @@ main {
 .cart-characters-wrapp__cards__characters__card-footer {
   background-color: #f7f3eb;
   color: #1a1a1a;
-  padding: 5px 10px;
+  padding: 5px 1px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: 10px;

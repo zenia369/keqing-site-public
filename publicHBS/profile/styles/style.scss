@@ -110,7 +110,7 @@ main {
             gap: 2rem;
             border-radius: 10px;
             box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
-            transition: box-shadow .5s ease-in-out;
+            transition: box-shadow .5s ease-in-out, background-image 2s linear;
             &:hover {
                 box-shadow: 0px 0px 4px 0px #eccff1, 0px 0px 0px 2px #ffffff;
             }
@@ -245,8 +245,8 @@ main {
                 justify-content: space-evenly;
 
                 &__card {
-                    height: 6rem;
-                    width: 5rem;
+                    height: 95px;
+                    width: 75px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -271,7 +271,7 @@ main {
                             left: 3px;
                             width: 25%;
                         }
-                        &::after {
+                        &::before {
                             content: '';
                             display: block;
                             position: absolute;
@@ -286,7 +286,7 @@ main {
                     &__footer {
                         background-color: #f7f3eb;
                         color: $dark;
-                        padding: 5px 10px;
+                        padding: 5px 1px;
                         border-bottom-left-radius: 5px;
                         border-bottom-right-radius: 5px;
                         font-size: 10px;
@@ -581,8 +581,8 @@ main {
             }
             &__characters {
                 &__card {
-                    height: 6rem;
-                    width: 5rem;
+                    height: 95px;
+                    width: 75px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -611,7 +611,7 @@ main {
                             left: 3px;
                             width: 25%;
                         }
-                        &::after {
+                        &::before {
                             content: '';
                             display: block;
                             position: absolute;
@@ -626,7 +626,7 @@ main {
                     &-footer {
                         background-color: #f7f3eb;
                         color: $dark;
-                        padding: 5px 10px;
+                        padding: 5px 1px;
                         border-bottom-left-radius: 5px;
                         border-bottom-right-radius: 5px;
                         font-size: 10px;

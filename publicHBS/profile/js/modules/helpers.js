@@ -17,6 +17,18 @@ class Helpers {
         modalListStatus.children[1].classList.add('d-none');
         cartListBody.children[1].classList.add('d-none');
         cartsModal();
+
+        const list = document.querySelector('#choose-new-card');
+
+        list.addEventListener('click', (e) => {
+            if(e.target.parentElement.nodeName === 'LI') {
+                setTimeout(() => addAnimationClose(), 0);
+
+                changeCard(e);
+    
+                list.removeEventListener('click', null);
+            }
+        })
  
     }
 
@@ -48,10 +60,33 @@ class Helpers {
 
 }
 
+function changeCard(e) {
+    const avatar = document.querySelector('.main__first__section__card__wrapper__image-wrapper__border-content');
+    const card = document.querySelector('.main__first__section__card');
+
+    const parent = e.target.parentElement;
+    const newAvatar = parent.dataset.src;
+    const newCard = parent.dataset.card;
+
+    Promise.resolve().then(() => {
+        const el = document.createElement('img');
+        el.src = newCard;
+
+        return new Promise(r => el.onload = el.onerror = r);
+    }).then(() => {
+        card.style = `background-image: url(${newCard});`
+        avatar.style = `background-image: url(${newAvatar});`
+    }).catch(() => {
+        console.warn("Error with load image for card");
+    })
+
+    //create fetch change user data in promise
+}
+
 function submiteEditeMode() {
     const checkBoxs = document.querySelectorAll('ul.gallery_wrapp input[type="checkbox"]:checked');
     console.log(checkBoxs);
-    //submit edit
+    //create fetch change folovers images submit edit
     hideEditMode();
 }
 
