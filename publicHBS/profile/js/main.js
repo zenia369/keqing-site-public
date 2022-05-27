@@ -75,7 +75,6 @@ activeCharacter.addEventListener('click', activeSetNewCharacter);
 preloadImages[0].addEventListener('click', () => {
     preloadImages[0].classList.toggle('active-preload');
     preloadImages[1].classList.toggle('active-preload');
-    console.log('hii');
 });
 
 btnEditGallery.addEventListener('click', (e) => {

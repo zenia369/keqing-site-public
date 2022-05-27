@@ -72,15 +72,16 @@
                 {{#each user.stand}} 
                     <li 
                       class="main__first__section__info__wrapper__card"
-                      data-index="{{@index}}"
+                      data-name="{{this.name}}"
                     >
-                        <div 
-                        class="main__first__section__info__wrapper__card__main"
-                        style="background-image: url({{this.images.[74]}});"
-                        >
-                        <img src="{{this.element}}" alt="Element {{this.name}}" />
-                        </div>
-                        <p class="main__first__section__info__wrapper__card__footer">{{this.name}}</p>
+                      <div 
+                          class="main__first__section__info__wrapper__card__main"
+                          style="background-image: url({{this.images.[74]}});"
+                          id="image"
+                      >
+                        <img id="element" src="{{this.element}}" alt="Element {{this.name}}" />
+                      </div>
+                      <p id="name" class="main__first__section__info__wrapper__card__footer">{{this.name}}</p>
                     </li>
                 {{/each}}
             </ul>
@@ -273,12 +274,12 @@
         <i class="fa-solid fa-circle-xmark" id="close-modal"></i>
         <div class="cart-characters-wrapp__header">
           <ul class="cart-characters-wrapp__header-list">
-            <li class="active">Фото для карти</li>
-            <li>Стенд з героями</li>
+            <li class="d-none">Фото для карти</li>
+            <li class="d-none">Стенд з героями</li>
           </ul>
         </div>
         <div class="cart-characters-wrapp__cards">
-          <div class="cart-characters-wrapp__cards__user">
+          <div class="cart-characters-wrapp__cards__user d-none">
             <ul id="choose-new-card">
                 {{#each charactersList}}
                     <li 
@@ -291,17 +292,21 @@
                 {{/each}}
             </ul>
           </div>
-          <div class="cart-characters-wrapp__cards__characters">
-            <ul>
+          <div class="cart-characters-wrapp__cards__characters d-none">
+            <ul id="choose-new-character">
                 {{#each charactersList}}
-                    <li class="cart-characters-wrapp__cards__characters__card">
+                    <li 
+                      class="cart-characters-wrapp__cards__characters__card"
+                      data-name="{{this.name}}"
+                    >
                         <div 
                             class="cart-characters-wrapp__cards__characters__card-main"
                             style="background-image: url({{this.images.[74]}});"
+                            id="image"
                         >
-                        <img src={{this.element}} alt="Element {{this.name}}" />
+                          <img id="element" src={{this.element}} alt="Element {{this.name}}" />
                         </div>
-                        <p class="cart-characters-wrapp__cards__characters__card-footer">{{this.name}}</p>
+                        <p id="name" class="cart-characters-wrapp__cards__characters__card-footer">{{this.name}}</p>
                     </li>   
                 {{/each}}
             </ul>
