@@ -1,6 +1,6 @@
 
 
-class Helpers {
+export default class Helpers {
 
     HandlerCardLayout(check = true) {
         layoutSettingsCard.style.visibility= check ? 'visible' : 'hidden';
@@ -88,6 +88,10 @@ class Helpers {
         btnEditSubmit.addEventListener('click', submiteEditeMode)
     }
 
+    removeModalCarts() {
+        addAnimationClose()
+    }
+
 }
 
 function changeStandCharacter(e, parent) {            
@@ -157,7 +161,7 @@ function hideEditMode() {
 
 function cartsModal() {
     modaleCarts.style.display = 'block';
-    modaleCarts.children[0].addEventListener('click', removeModalCarts);
+    modaleCarts.children[0].addEventListener('click', addAnimationClose);
 }
 
 function removeModalCarts() {

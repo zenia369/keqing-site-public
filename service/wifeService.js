@@ -1,10 +1,11 @@
-import { initializeApp } from "firebase/app";
 // const imageToBase64 = require('image-to-base64');
+const { initializeApp } = require('firebase/app');
 
-import firebaseConfig from '../data/firebaseConfig.js';
+
+const firebaseConfig = require('../data/firebaseConfig');
 
 const firebase = initializeApp(firebaseConfig);
-import { getStorage, ref, listAll} from "firebase/storage";
+const { getStorage, ref, listAll} = require('firebase/storage');
 const storage = getStorage(firebase);
 
 
@@ -49,4 +50,4 @@ class Wife {
 }
 
 
-export default Wife
+module.exports = Wife

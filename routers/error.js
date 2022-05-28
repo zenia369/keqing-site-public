@@ -1,11 +1,7 @@
-import Router from 'express';
+const Router = require('express');
 const router = Router();
-import fs from 'fs';
-
-import { fileURLToPath } from 'url';
-import Path, { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const fs = require('fs');
+const Path = require('path');
 
 router.get('*', (req, res) => {
     const fileName = Path.resolve(__dirname, `../public${req.url}`);
@@ -15,4 +11,4 @@ router.get('*', (req, res) => {
     }
 })
 
-export default router
+module.exports = router

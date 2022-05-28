@@ -1,12 +1,9 @@
-import Router from 'express';
+const Router = require('express');
 const router = Router();
-import { fileURLToPath } from 'url';
-import Path, { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const Path = require('path');
 
 
-import charactersList from '../data/charactersList.js';
+const charactersList = require('../data/charactersList');
 
 router.get('/userProfile', (req, res) => {
     const {query} = req;
@@ -112,4 +109,4 @@ router.get('/userProfile', (req, res) => {
     })
 });
 
-export default router;
+module.exports = router

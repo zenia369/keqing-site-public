@@ -1,7 +1,7 @@
-import { initializeApp, cert } from 'firebase-admin/app';
-import { getFirestore} from 'firebase-admin/firestore';
+const { initializeApp, cert } = require('firebase-admin/app');
+const  { getFirestore} = require('firebase-admin/firestore');
 
-import serviceAccount from '../data/serviceAccountKey.js';
+const serviceAccount = require('../data/serviceAccountKey');
 
 initializeApp({
     credential: cert(serviceAccount)
@@ -20,4 +20,4 @@ class Store {
 }
 
 
-export default Store
+module.exports = Store

@@ -1,13 +1,10 @@
-import Router from 'express';
+const Router = require('express');
 const router = Router();
-import { fileURLToPath } from 'url';
-import Path, { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const Path = require('path');
 
 
-import Wife from '../service/wifeService.js';
-import db from '../service/fireStoreService.js';
+const Wife = require('../service/wifeService');
+const db = require('../service/fireStoreService');
 
 
 router.get('/characters/:name', (req, res) => {
@@ -36,7 +33,7 @@ router.get('/characters/:name', (req, res) => {
 })
 
 
-export default router;
+module.exports = router
 
 
 

@@ -1,8 +1,8 @@
-import Router from 'express';
+const Router = require('express');
 const router = Router();
 
 //service
-import db from '../../service/fireStoreService.js';
+const db = require('../../service/fireStoreService');
 
 
 router.get('/home-image', async (req, res) => {
@@ -15,4 +15,4 @@ router.get('/home-image', async (req, res) => {
     }
 })
 
-export default router
+module.exports = router

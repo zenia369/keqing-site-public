@@ -1,11 +1,6 @@
-import Router from 'express';
+const Router = require('express');
 const router = Router();
-
-
-import { fileURLToPath } from 'url';
-import Path, { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const Path = require('path');
 
 
 
@@ -40,17 +35,10 @@ router.get('/autorsReview', (req, res) => {
     res.sendFile(fileName);
 });
 
-// router.get('/userProfile', (req, res) => {
-//     let {url} = req;
-
-//     const fileName = Path.resolve(__dirname, `../public/pages/${url}/index.html`);
-    
-//     res.sendFile(fileName);
-// });
 
 
 
 
 
-export default router;
+module.exports = router
 

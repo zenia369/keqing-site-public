@@ -1,7 +1,7 @@
-import Router from 'express';
+const Router = require('express');
 const router = Router();
-import validator from "email-validator";
-import Email from '../../service/SendEmailService.js'
+const validator = require('email-validator');
+const Email = require('../../service/SendEmailService');
 
 
 router.post('/message', async (req, res) => {
@@ -24,4 +24,4 @@ router.post('/message', async (req, res) => {
 })
 
 
-export default router;
+module.exports = router

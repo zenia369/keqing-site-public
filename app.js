@@ -1,20 +1,20 @@
-import 'dotenv/config'
-import express from 'express';
+require('dotenv').config();
+const express = require('express');
 const app = express();
-import { fileURLToPath } from 'url';
-import Path, { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-import exphbs from 'express-handlebars';
+const Path = require('path');
+const exphbs = require('express-handlebars');
+
 
 //Routes
-import siteRouter from './routers/router.js';
-import wifeRouter from './routers/router.wife.modules.js';
-import profileRouter from './routers/router.userProfile.modules.js';
-import errorRouter from './routers/error.js';
+const siteRouter = require('./routers/router');
+const wifeRouter = require('./routers/router.wife.modules');
+const profileRouter = require('./routers/router.userProfile.modules');
+const errorRouter = require('./routers/error');
 
 //API
-import api from './routers/API/index.js'
+const api = require('./routers/API/index');
+
+
 
 
 const PORT = process.env.PORT ?? 5000;

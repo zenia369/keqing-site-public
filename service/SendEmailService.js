@@ -1,4 +1,4 @@
-import sgMail from '@sendgrid/mail';
+const sgMail = require('@sendgrid/mail');
 
 
 class Email {
@@ -32,4 +32,4 @@ class Email {
     }
 }
 
-export default Email;
+module.exports = Email

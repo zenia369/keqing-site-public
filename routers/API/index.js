@@ -1,13 +1,14 @@
-import Router from 'express';
+const Router = require('express');
 const router = Router();
 
-import emailAPI from './emailAPI.js';
-import myWifeAPI from './myWifeAPI.js';
-import homeImagesAPI from './main_imagesAPI.js'
+
+const emailAPI = require('./emailAPI');
+const myWifeAPI = require('./myWifeAPI');
+const homeImagesAPI = require('./main_imagesAPI');
 
 router.use('/api', emailAPI);
 router.use('/api', myWifeAPI);
 router.use('/api', homeImagesAPI);
 
 
-export default router
+module.exports = router
