@@ -342,6 +342,22 @@ a {
   transition: opacity .6s linear, visibility 1s linear, -webkit-transform .7s linear;
   transition: opacity .6s linear, transform .7s linear, visibility 1s linear;
   transition: opacity .6s linear, transform .7s linear, visibility 1s linear, -webkit-transform .7s linear;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 255, 0.5) transparent;
+}
+
+.three-screen::-webkit-scrollbar {
+  width: 10px;
+}
+
+.three-screen::-webkit-scrollbar-track {
+  background: rgba(192, 168, 197, 0.5);
+}
+
+.three-screen::-webkit-scrollbar-thumb {
+  background-color: rgba(198, 100, 215, 0.5);
+  border-radius: 20px;
+  border: transparent;
 }
 
 .three-screen__wrapp__btn {

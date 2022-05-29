@@ -35,6 +35,14 @@ router.get('/autorsReview', (req, res) => {
     res.sendFile(fileName);
 });
 
+router.get('/login', (req, res) => {
+    let {url} = req;
+
+    const fileName = Path.resolve(__dirname, `../public/pages/${url}/index.html`);
+    
+    res.sendFile(fileName);
+})
+
 
 
 

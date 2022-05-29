@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+main {
+  height: 100vh;
+  max-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+main .content, main .images {
+  height: inherit;
+  max-height: 100vh;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+main .content {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+main .content__title {
+  margin-top: 70px;
+  margin-bottom: 90px;
+  text-align: center;
+}
+
+main .content__title_h {
+  font-family: 'Merienda', cursive;
+  font-size: 48px;
+  font-weight: 500;
+}
+
+main .content__title_p {
+  margin-top: 55px;
+  font-weight: 500;
+  font-size: 24px;
+  color: #ECCFF1;
+  text-transform: capitalize;
+}
+
+main .content__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .content__form input[type="email"] {
+  margin-bottom: 30px;
+}
+
+main .content__form input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 500;
+  color: #EFA3F5;
+  border-bottom: 3px solid #ECCFF1;
+  padding: 5px;
+}
+
+main .content__form input[type="submit"] {
+  margin-top: 40px;
+  width: 205px;
+  height: 50px;
+  border-radius: 28px;
+  background: #EFA3F5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background .3s ease-in;
+  transition: background .3s ease-in;
+}
+
+main .content__form input[type="submit"]:hover {
+  background: #d719e6;
+}
+
+main .content__reaction img {
+  -webkit-transform: translateY(120px);
+          transform: translateY(120px);
+  opacity: 0;
+  width: 12%;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+main .images {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+  transition: transform 2s ease-in-out, -webkit-transform 2s ease-in-out;
+}
+
+main .images__item {
+  height: inherit;
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

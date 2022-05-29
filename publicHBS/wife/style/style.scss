@@ -246,6 +246,19 @@ a {
     transform: translateY(500px);
     opacity: 0;
     transition: opacity .6s linear, transform .7s linear, visibility 1s linear;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 1555, .5) transparent;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(192, 168, 197, 0.5);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(198, 100, 215, .5);
+        border-radius: 20px;
+        border: transparent;
+    }
     &__wrapp__btn {
         position: sticky;
         top: 5px;

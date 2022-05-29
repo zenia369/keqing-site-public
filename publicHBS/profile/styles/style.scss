@@ -16,6 +16,19 @@ body {
     background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FimageBackground%2Fkeqing-hung-out.jpg?alt=media&token=4fb0156e-2f0a-4b81-abec-b04b3598d947);
     background-size: contain;
     backdrop-filter: brightness(0.7);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 1555, .5) transparent;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(192, 168, 197, 0.5);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(198, 100, 215, .5);
+        border-radius: 20px;
+        border: transparent;
+    }
 }
 a {
     font-family: 'Open Sans', sans-serif;
