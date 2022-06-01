@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 95%;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url("https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2Fregistration%2Fphoto_2022-06-01_13-01-54.jpg?alt=media&token=cb35b61d-fa20-4e94-a9bc-b70ead3844d8");
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2Fregistration%2Fphoto_2022-06-01_13-01-54.jpg?alt=media&token=cb35b61d-fa20-4e94-a9bc-b70ead3844d8");
+  background-size: cover;
+}
+
+header {
+  padding-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .title {
+  color: white;
+}
+
+header .login {
+  text-decoration: none;
+  margin-right: 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: #EFA3F5;
+  font-weight: 500;
+  border: 1px solid #edbaf5;
+  border-radius: 5px;
+  padding: 5px;
+  background: transparent;
+  -webkit-transition: color .3s ease, background .3s ease-in;
+  transition: color .3s ease, background .3s ease-in;
+}
+
+header .login:hover {
+  color: white;
+  background: #edbaf5;
+}
+
+main {
+  margin: 50px 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main form .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 120px;
+}
+
+main form .content label, main form .content legend {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+main form .content fieldset {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+main form .content fieldset:hover {
+  border-style: dashed;
+}
+
+main form .content__auth, main form .content__user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+}
+
+main form .content__auth select, main form .content__user select {
+  margin-left: 5px;
+}
+
+main form .content__auth select, main form .content__auth input, main form .content__user select, main form .content__user input {
+  padding: 5px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background: #c8a0cced;
+  color: white;
+  outline: none;
+}
+
+main form .content__auth select:focus-visible, main form .content__auth input:focus-visible, main form .content__user select:focus-visible, main form .content__user input:focus-visible {
+  outline: none;
+  border: 2px solid transparent;
+  -webkit-box-shadow: 0px 0px 5px 2px white, 0px 0px 13px 3px #8f55e3;
+          box-shadow: 0px 0px 5px 2px white, 0px 0px 13px 3px #8f55e3;
+}
+
+main form .content__auth {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+main form .btn-submit {
+  margin-top: 40px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 170px;
+  height: 45px;
+  border-radius: 28px;
+  background: #f0a3f5de;
+  color: white;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background .3s ease-in;
+  transition: background .3s ease-in;
+}
+
+main form .btn-submit:hover {
+  background: #e775f0;
+}
+
+footer {
+  padding: 10px 0;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

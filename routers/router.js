@@ -43,6 +43,14 @@ router.get('/login', (req, res) => {
     res.sendFile(fileName);
 })
 
+router.get('/registration', (req, res) => {
+    let {url} = req;
+
+    const fileName = Path.resolve(__dirname, `../public/pages/${url}/index.html`);
+    
+    res.sendFile(fileName);
+})
+
 
 
 

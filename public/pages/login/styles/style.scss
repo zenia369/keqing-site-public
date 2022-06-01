@@ -72,6 +72,28 @@ main {
                 }
             }
         }
+        &__another {
+            text-align: center;
+            margin: 15px 0;
+            & > p {
+                margin-bottom: 5px;
+            }
+            &__links {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 10px;
+                a {
+                    text-decoration: none;
+                    color: #EFA3F5;
+                    transition: transform .3s ease;
+                    &:hover {
+                        transform: scale(1.1);
+                        color: #c8a0cc;
+                    }
+                }
+            }
+        }
         &__reaction {
             img {
                 transform: translateY(120px);
@@ -84,6 +106,10 @@ main {
     }
 
     .images {
+        background: linear-gradient(90deg,#f0baf5, #e2c3e4);
+        background-size: 200% 200%;
+        animation: gradientAnimate 3s linear infinite;
+        // transition: background 5s ease-in;
         width: auto;
         display: flex;
         flex-direction: column;
@@ -93,5 +119,14 @@ main {
             width: 100%;
         }
 
+    }
+}
+
+@keyframes gradientAnimate {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 200% 200%;
     }
 }

@@ -18,4 +18,13 @@ const configLogin = {
   },
 }
 
-module.exports = configLogin
+const configRegistration = {
+  mode: 'production',
+  entry: './webpack/registration/js/main.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, './public/pages/registration/js'),
+  },
+}
+
+module.exports = configRegistration

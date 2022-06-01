@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ukr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pages/registration/styles/style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1 class="title">
+            Welcome new user on Keqing-site registration page!
+        </h1>
+        <a class="login" href="/login">Log in</a>
+    </header>
+    <main> 
+        <form>
+            <div class="content">
+                <fieldset class="content__auth">
+                    <legend>Authorisation information</legend>
+                    <input type="email" placeholder="Email" minlength="6" id="email" required>
+                    <input type="password" placeholder="Password" minlength="6" maxlength="6" id="password" required>
+                </fieldset>
+                <fieldset class="content__user">
+                    <legend>User information</legend>
+                    <div>
+                        <label for="name">Create name:</label>
+                        <input type="text" id="name" required minlength="4">
+                    </div>
+                    <div>
+                        <label for="city">Choose city:</label>
+                        <select name="city" id="city" required>
+                            <option disabled selected >Variants</option>
+                            <option value="Mondstadt">Mondstadt</option>
+                            <option value="Liyue">Liyue</option>
+                            <option value="Inazuma">Inazuma</option>
+                          </select>
+                    </div>
+                    <div>
+                        <label for="elemental">Choose elemental:</label>
+                        <select name="elemental" id="elemental">
+                            <option disabled selected>Variants</option>
+                            <option value="Pyro">Pyro</option>
+                            <option value="Hydro">Hydro</option>
+                            <option value="Anemo">Anemo</option>
+                            <option value="Electro">Electro</option>
+                            <option value="Cryo">Cryo</option>
+                            <option value="Geo">Geo</option>
+                          </select>
+                    </div>
+                </fieldset>
+            </div>
+            <button class="btn-submit" type="submit">Let's go</button>
+        </form>
+    </main>
+    <footer>
+        <p>© power by Keqing-site</p>
+    </footer>
+    <script src="pages/registration/js/main.js"></script>
+</body>
+</html>

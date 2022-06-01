@@ -97,6 +97,44 @@ main .content__form input[type="submit"]:hover {
   background: #d719e6;
 }
 
+main .content__another {
+  text-align: center;
+  margin: 15px 0;
+}
+
+main .content__another > p {
+  margin-bottom: 5px;
+}
+
+main .content__another__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+main .content__another__links a {
+  text-decoration: none;
+  color: #EFA3F5;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+
+main .content__another__links a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  color: #c8a0cc;
+}
+
 main .content__reaction img {
   -webkit-transform: translateY(120px);
           transform: translateY(120px);
@@ -107,6 +145,11 @@ main .content__reaction img {
 }
 
 main .images {
+  background: -webkit-gradient(linear, left top, right top, from(#f0baf5), to(#e2c3e4));
+  background: linear-gradient(90deg, #f0baf5, #e2c3e4);
+  background-size: 200% 200%;
+  -webkit-animation: gradientAnimate 3s linear infinite;
+          animation: gradientAnimate 3s linear infinite;
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,5 +167,23 @@ main .images {
 main .images__item {
   height: inherit;
   width: 100%;
+}
+
+@-webkit-keyframes gradientAnimate {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 200% 200%;
+  }
+}
+
+@keyframes gradientAnimate {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 200% 200%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
