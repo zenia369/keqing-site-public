@@ -1,5 +1,4 @@
 const scene = document.getElementById('scene');
-let parallaxInstance;
 
 const screens = document.querySelectorAll('.screen');
 const overlay = document.querySelector('.second-screen__video-box');
@@ -57,6 +56,55 @@ gsap.registerEffect({
     }
 });
 
+//class
+class ImageAction {
+    async addFavorite(bigLink, link) {
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+
+        try {
+            const response = await fetch('/api/wife/addFavoritePhoto', {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': Cookies.get('XSRF-TOKEN')
+                },
+                body: JSON.stringify({
+                    bigLink,
+                    link,
+                    uid: params.uid
+                })
+            })
+            
+            if(!response.ok) throw Error((await response.json()).message)
+
+            return {message: (await response.json()).message, status: 'success'}
+        } catch (error) {
+            return {message: error.message, status: 'error'}
+        }
+    }
+    showStatus(message, status) {
+        const colors = {
+            success: 'linear-gradient(to right, #00b09b, #96c93d)',
+            error: 'linear-gradient(to right, #ff5f6d, #ffc371)'
+        }
+
+        Toastify({
+            text: message,
+            duration: 5000,
+            close: true,
+            gravity: 'bottom',
+            position: 'center', 
+            stopOnFocus: true,
+            style: {
+              background: colors[status],
+            },
+          }).showToast();
+    }
+}
+
 
 btnOpenVideo.addEventListener('click', overlayView);
 overlayBtn.addEventListener('click', overlayView);
@@ -66,9 +114,9 @@ btnPreviousScreen.addEventListener('click', downScreen);
 window.addEventListener('load', () => {
     document.querySelector('.container').classList.remove('visibility')
     document.querySelector('.load-page').classList.add('visibility');
-    parallaxInstance = new Parallax(scene);
 })
 
+const imageAction = new ImageAction();
 
 
 
@@ -90,14 +138,15 @@ function overlayView() {
 
 function upScreen() {
     gsap.effects.up(threeScreen);
-    parallaxInstance.disable();
 }
 
 function downScreen() {
     gsap.effects.fade(threeScreen);
-    parallaxInstance.enable();
 }
 
 
-
+async function saveFavorite(bigLink, link) {
+    const image = await imageAction.addFavorite(bigLink, link);
+    imageAction.showStatus(image.message, image.status);
+}
 

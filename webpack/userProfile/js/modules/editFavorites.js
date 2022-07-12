@@ -1,3 +1,6 @@
+import createFetch from "./createFetch";
+import showUserMesage from "./showUserMesage";
+
 const gallery = document.querySelector('.gallery');
 const btnEditGallery = document.querySelector('.btn-edit-gallery');
 const btnsEdit = document.querySelector('.wrapp-edit-btns');
@@ -36,13 +39,48 @@ export default new class EditFavorites {
             btnEditSubmit.removeEventListener('click', submiteEditeMode);
         }
 
-        function submiteEditeMode() {
+        async function submiteEditeMode() {
             const checkBoxs = document.querySelectorAll('ul.gallery_wrapp input[type="checkbox"]:checked');
-            console.log(checkBoxs);
-            //create fetch change folovers images submit edit
-            hideEditMode();
+
+            const links = [...checkBoxs].reduce((acc, el) => {
+                const parent = el.parentNode.parentNode;
+                const aLink = parent.children[1].getAttribute('href');
+
+                acc.push(aLink)
+                return acc
+            }, []);
+
+            await saveChanges(links);
+
+            queueMicrotask(() => {
+                [...checkBoxs].forEach((el) => {
+                    // el.parentNode.parentNode.remove()
+                    const parent = el.parentNode.parentNode;
+                    parent.style = 'transform: scale(0.5); opacity: 0.4;'
+                    setTimeout(() => parent.remove(), 450)
+                });
+
+                hideEditMode();
+            })
         }
     }
 
 
+}
+
+async function saveChanges(links) {
+    console.log(window.pageYOffset);
+    try {
+        const response = await createFetch(
+            '/api/profile/deleteFavoritePhoto',
+            {
+                links
+            },
+            'DELETE'
+        )
+        showUserMesage(response.message, 'succes', 'top', 'left', 'toastify-sticky');        
+    } catch (error) {
+        console.log(error.message);
+        showUserMesage(error.message, 'error', 'top', 'left', 'toastify-sticky');        
+    }
 }

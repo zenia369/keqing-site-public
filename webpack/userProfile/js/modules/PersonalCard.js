@@ -1,3 +1,7 @@
+import createFetch from "./createFetch";
+import showUserMesage from "./showUserMesage";
+
+
 const layoutSettingsCard = document.getElementById('settings-card');
 const formPersonalCard = document.getElementById('form-card');
 const userName = document.querySelector('span#name');
@@ -11,7 +15,7 @@ export default new class PersonalCard {
         layoutSettingsCard.classList.toggle('animate__zoomIn');
     }
 
-    submitFormPersonalCard(e, HandlerCardLayout) {
+    async submitFormPersonalCard(e, HandlerCardLayout) {
         e.preventDefault();
 
         const inputText = formPersonalCard.querySelector('#newName');
@@ -22,14 +26,31 @@ export default new class PersonalCard {
             userName.innerHTML = inputText.value;
             userCity.innerHTML = newCity.value;
             userElemental.innerHTML = newElemental.value;
+
+            await saveInfo(inputText.value, newCity.value, newElemental.value);
         
             inputText.value = '';
             newCity.value = '';
             newElemental.value = '';
-        
-            //fetch data
         }
     
         HandlerCardLayout(false)
+    }
+}
+
+async function saveInfo(newName, newCity, newElemental) {
+    try {
+        const response = await createFetch(
+            '/api/profile/changeInfo',
+            {
+                name: newName,
+                city: newCity,
+                element: newElemental
+            }
+        )
+
+        showUserMesage(response.message, 'succes');
+    } catch (error) {
+        showUserMesage(error.message, 'error');
     }
 }

@@ -5,7 +5,7 @@ const configProfile = {
     entry: './webpack/userProfile/js/main.js',
     output: {
       filename: 'main.js',
-      path: path.resolve(__dirname, './publicHBS/profile/js'),
+      path: path.resolve(__dirname, './public/pages/userProfile/js'),
     },
 }
 
@@ -27,4 +27,4 @@ const configRegistration = {
   },
 }
 
-module.exports = configRegistration
+module.exports = configProfile

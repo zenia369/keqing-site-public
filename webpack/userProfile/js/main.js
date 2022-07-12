@@ -1,3 +1,4 @@
+
 //Work with personal card
 const btnPersonalCard = document.getElementById('btn-card-ss');
 const formPersonalCard = document.getElementById('form-card');
@@ -34,8 +35,7 @@ const {
 
 import Avatar from './modules/changeAvatar';
 const {
-    activeSetNewAvatar,
-    changeCard,
+    activeSetNewAvatar
 } = Avatar;
 
 import ChangeCharacter from './modules/changeCharacter';
@@ -63,7 +63,7 @@ btnCloseModal.addEventListener('click', removeModalCarts);
 
 
 //For change avatar
-activeAvatar.addEventListener('click', () => activeSetNewAvatar(changeCard));
+activeAvatar.addEventListener('click', activeSetNewAvatar);
 
 
 //For change character

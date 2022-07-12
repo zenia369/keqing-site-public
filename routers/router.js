@@ -2,7 +2,8 @@ const Router = require('express');
 const router = Router();
 const Path = require('path');
 
-
+//middlewares
+const loginMiddlewar = require('../middlewares/login');
 
 router.get('/', (req, res) => { 
 
@@ -35,11 +36,10 @@ router.get('/autorsReview', (req, res) => {
     res.sendFile(fileName);
 });
 
-router.get('/login', (req, res) => {
-    let {url} = req;
+router.get('/login?:continuePath', loginMiddlewar, (req, res) => {
 
-    const fileName = Path.resolve(__dirname, `../public/pages/${url}/index.html`);
-    
+    const fileName = Path.resolve(__dirname, `../public/pages/login/index.html`);
+
     res.sendFile(fileName);
 })
 

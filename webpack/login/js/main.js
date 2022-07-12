@@ -1,42 +1,39 @@
-import Carusel from './modules/animationCarusel';
+import preloadImages from './modules/preloadImages';
+import login from './modules/fetchAuth';
+
+const form = document.querySelector('#form')
 
 
-window.addEventListener('load', () => {
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const target = event.target;
 
-    const images = document.querySelector('.images');
+    const email = target.querySelector('#email').value;
+    const password = target.querySelector('#password').value;
+    const btn = target.querySelector('button');
+    btn.disabled = true;
 
-    (async () => {
-        await fetch('api/login-images')
-                .then(data => data.json())
-                .then(data => preloadImages(data));
-    })()
+    try {
+        const uid = await login(email, password);
 
+        if(!uid) throw Error('Server error, try again')
+        
+        target.querySelector('#email').value = '';
+        target.querySelector('#password').value = '';
+        btn.disabled = false;
 
-
-
-    function appendImages(sources) {
-        sources.forEach((src, i) => {
-            const el = document.createElement('img');
-            el.classList.add('images__item');
-            el.alt = `Keqing image ${i+2}`;
-            el.src = src;
-
-            images.append(el);
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
         });
+        
+        window.location.assign(params.continuePath ?? '/userProfile' + '?uid=' + uid);
+    } catch (error) {
+        btn.disabled = false;
+        console.warn(error.message);
     }
 
-    function preloadImages(sources) {
-        Promise.all(sources.map((src, i) => {
-          const img = document.createElement('img');
-          img.src = src;
-          return new Promise(r => img.onload = img.onerror = r);
-        }))
-            .then(() => appendImages(sources))
-            .then(() => Carusel(images, 5000, 100)())
-    }
-
-
-    
 })
+window.addEventListener('load', () => preloadImages())
+
 
 

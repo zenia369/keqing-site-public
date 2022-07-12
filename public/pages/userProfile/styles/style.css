@@ -5,12 +5,20 @@
           box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FimageBackground%2Fkeqing-hung-out.jpg?alt=media&token=4fb0156e-2f0a-4b81-abec-b04b3598d947);
-  background-size: contain;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   -webkit-backdrop-filter: brightness(0.7);
           backdrop-filter: brightness(0.7);
+  overflow: overlay;
 }
 
 a {
@@ -21,6 +29,26 @@ main {
   width: 100%;
   min-height: 100vh;
   padding: 0 50px;
+}
+
+.scroll-style, body, .cart-characters {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 255, 0.5) transparent;
+}
+
+.scroll-style::-webkit-scrollbar, body::-webkit-scrollbar, .cart-characters::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-style::-webkit-scrollbar-track, body::-webkit-scrollbar-track, .cart-characters::-webkit-scrollbar-track {
+  background: rgba(192, 168, 197, 0.5);
+}
+
+.scroll-style::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb, .cart-characters::-webkit-scrollbar-thumb {
+  background-color: rgba(198, 100, 215, 0.5);
+  border-radius: 20px;
+  border: transparent;
 }
 
 .header {
@@ -72,6 +100,7 @@ main {
   font-weight: 800;
   background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), color-stop(135%, #AB35BE));
   background: linear-gradient(to top, #ffffff, #AB35BE 135%);
+  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -120,10 +149,15 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   gap: 20px;
+  padding: 2.5rem 0;
 }
 
 .main__first__section__card {
+  -ms-flex-item-align: center;
+      align-self: center;
   position: relative;
   background-image: url(../images/NameCards/Namecard_Background_Kamisato_Ayaka_Folding_Fan.webp);
   background-repeat: no-repeat;
@@ -131,7 +165,6 @@ main {
   background-position: center;
   width: 35%;
   min-width: 27rem;
-  margin: 2.5rem 2.5rem 2.5rem 0;
   border: 1px solid #ddaee5;
   height: 13rem;
   display: -webkit-box;
@@ -141,10 +174,10 @@ main {
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
           box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
-  -webkit-transition: -webkit-box-shadow .5s ease-in-out;
-  transition: -webkit-box-shadow .5s ease-in-out;
-  transition: box-shadow .5s ease-in-out;
-  transition: box-shadow .5s ease-in-out, -webkit-box-shadow .5s ease-in-out;
+  -webkit-transition: background-image 2s linear, -webkit-box-shadow .5s ease-in-out;
+  transition: background-image 2s linear, -webkit-box-shadow .5s ease-in-out;
+  transition: box-shadow .5s ease-in-out, background-image 2s linear;
+  transition: box-shadow .5s ease-in-out, background-image 2s linear, -webkit-box-shadow .5s ease-in-out;
 }
 
 .main__first__section__card:hover {
@@ -329,10 +362,11 @@ main {
   text-transform: capitalize;
 }
 
+.main__first__section__card__wrapper__info span#uid {
+  font-size: 12px;
+}
+
 .main__first__section__info {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -345,22 +379,21 @@ main {
 }
 
 .main__first__section__info__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   gap: 20px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   list-style: none;
   width: 25rem;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (75px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 75px);
 }
 
 .main__first__section__info__wrapper__card {
-  height: 6rem;
-  width: 5rem;
+  height: 95px;
+  width: 74px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -405,7 +438,7 @@ main {
   width: 25%;
 }
 
-.main__first__section__info__wrapper__card__main::after {
+.main__first__section__info__wrapper__card__main::before {
   content: '';
   display: block;
   position: absolute;
@@ -421,7 +454,7 @@ main {
 .main__first__section__info__wrapper__card__footer {
   background-color: #f7f3eb;
   color: #1a1a1a;
-  padding: 5px 10px;
+  padding: 5px 1px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: 10px;
@@ -432,6 +465,7 @@ main {
 .gallery {
   background-color: #dcabe4;
   border-radius: 5px;
+  margin-bottom: 25px;
 }
 
 .gallery button {
@@ -469,6 +503,10 @@ main {
           justify-content: space-between;
 }
 
+.gallery_head h2 {
+  font-weight: 600;
+}
+
 .gallery_wrapp {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -490,10 +528,11 @@ main {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-  -webkit-transition: -webkit-filter .5s ease-in;
-  transition: -webkit-filter .5s ease-in;
-  transition: filter .5s ease-in;
-  transition: filter .5s ease-in, -webkit-filter .5s ease-in;
+  opacity: 1;
+  -webkit-transition: opacity .4s ease, -webkit-transform .4s ease, -webkit-filter .5s ease-in;
+  transition: opacity .4s ease, -webkit-transform .4s ease, -webkit-filter .5s ease-in;
+  transition: opacity .4s ease, transform .4s ease, filter .5s ease-in;
+  transition: opacity .4s ease, transform .4s ease, filter .5s ease-in, -webkit-transform .4s ease, -webkit-filter .5s ease-in;
 }
 
 .gallery_wrapp li:hover {
@@ -514,7 +553,7 @@ main {
   vertical-align: bottom;
 }
 
-.gallery_preload {
+.gallery_preload, .gallery_empty {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -529,7 +568,31 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 0;
+}
+
+.gallery_empty h3 {
+  color: white;
   margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.gallery_empty a {
+  text-decoration: none;
+  background-color: white;
+  font-size: 15px;
+  font-weight: lighter;
+  color: black;
+  border: 2px solid #d3a1ec;
+  padding: 10px 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  -webkit-transition: background-color .3s ease-in, color .3s ease-in;
+  transition: background-color .3s ease-in, color .3s ease-in;
+}
+
+.gallery_empty a:hover {
+  background-color: #d3a1ec;
+  color: white;
 }
 
 .toggleGalleryVisible .gallery_wrapp > li {
@@ -632,11 +695,13 @@ main {
 
 .footer__wrapper-text p {
   margin-left: 5px;
+  font-weight: 500;
 }
 
 .cart-characters {
   display: none;
   position: fixed;
+  overflow-y: scroll;
   top: 0;
   right: 0;
   bottom: 0;
@@ -663,8 +728,7 @@ main {
   max-width: 50rem;
   min-height: 33rem;
   background: white;
-  margin: 0 auto;
-  margin-top: 5rem;
+  margin: 5rem auto;
   border-radius: 10px;
   position: relative;
 }
@@ -751,12 +815,19 @@ main {
 
 .cart-characters-wrapp__cards__characters ul, .cart-characters-wrapp__cards__user ul {
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   gap: 15px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (75px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 75px);
+}
+
+.cart-characters-wrapp__cards__user ul {
+  -ms-grid-columns: (105px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 105px);
 }
 
 .cart-characters-wrapp__cards__user-item {
@@ -803,8 +874,8 @@ main {
 }
 
 .cart-characters-wrapp__cards__characters__card {
-  height: 6rem;
-  width: 5rem;
+  height: 95px;
+  width: 75px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -854,12 +925,12 @@ main {
   width: 25%;
 }
 
-.cart-characters-wrapp__cards__characters__card-main::after {
+.cart-characters-wrapp__cards__characters__card-main::before {
   content: '';
   display: block;
   position: absolute;
   bottom: -1px;
-  right: 0;
+  right: -.5%;
   width: 15px;
   height: 15px;
   background-color: #f7f3eb;
@@ -870,7 +941,7 @@ main {
 .cart-characters-wrapp__cards__characters__card-footer {
   background-color: #f7f3eb;
   color: #1a1a1a;
-  padding: 5px 10px;
+  padding: 5px 1px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: 10px;
@@ -880,6 +951,87 @@ main {
 
 .active-preload {
   display: none !important;
+}
+
+.toastify {
+  padding: 12px 20px;
+  color: #ffffff;
+  display: inline-block;
+  -webkit-box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
+          box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
+  background: linear-gradient(135deg, #73a5ff, #5477f5);
+  position: fixed;
+  opacity: 0;
+  -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: calc(50% - 20px);
+  z-index: 2147483647;
+}
+
+.toastify-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.toastify.on {
+  opacity: 1;
+}
+
+.toast-close {
+  opacity: 0.4;
+  padding: 0 5px;
+}
+
+.toastify-right {
+  right: 15px;
+}
+
+.toastify-left {
+  left: 15px;
+}
+
+.toastify-top {
+  top: -150px;
+}
+
+.toastify-bottom {
+  bottom: -150px;
+}
+
+.toastify-rounded {
+  border-radius: 25px;
+}
+
+.toastify-avatar {
+  width: 1.5em;
+  height: 1.5em;
+  margin: -7px 5px;
+  border-radius: 2px;
+}
+
+.toastify-center {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+@media only screen and (max-width: 360px) {
+  .toastify-right, .toastify-left {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+  }
 }
 
 .lds-heart {

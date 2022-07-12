@@ -80,7 +80,7 @@ main .content__form input {
   padding: 5px;
 }
 
-main .content__form input[type="submit"] {
+main .content__form button[type="submit"] {
   margin-top: 40px;
   width: 205px;
   height: 50px;
@@ -93,8 +93,12 @@ main .content__form input[type="submit"] {
   transition: background .3s ease-in;
 }
 
-main .content__form input[type="submit"]:hover {
+main .content__form button[type="submit"]:hover {
   background: #d719e6;
+}
+
+main .content__form button[type="submit"]:disabled {
+  cursor: no-drop;
 }
 
 main .content__another {

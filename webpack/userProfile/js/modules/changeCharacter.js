@@ -1,3 +1,6 @@
+import createFetch from "./createFetch";
+import showUserMesage from "./showUserMesage";
+
 const modaleCarts = document.getElementById('carts');
 const modalListStatus = modaleCarts.querySelector('ul');
 const cartListBody = document.querySelector('.cart-characters-wrapp__cards');
@@ -12,7 +15,8 @@ export default new class ChangeCharacter {
 
     activeSetNewCharacter(e, changeStandCharacter) {
         const parent = e.target.parentElement;
-
+        const id = +parent.dataset.id;
+        
         if(parent.nodeName === 'LI') {
             const list = document.querySelector('#choose-new-character');
             const stand = Array.from(document.getElementById('characters').children);
@@ -26,7 +30,7 @@ export default new class ChangeCharacter {
 
             list.addEventListener('click', changeCharacter);
 
-            function changeCharacter(e) {
+            async function changeCharacter(e) {
                 if(
                     e.target.parentElement.nodeName === 'LI' && 
                     !stand.find(el => el.dataset.name === e.target.parentElement.dataset.name)
@@ -34,7 +38,9 @@ export default new class ChangeCharacter {
                     setTimeout(() => removeModalCarts(), 0);
                     setTimeout(() => window.scrollTo(0,0), 1000);
 
-                    changeStandCharacter(e, parent);
+                    const newCard = changeStandCharacter(e, parent);
+
+                    await saveCard(id, newCard);
 
                     list.removeEventListener('click', changeCharacter);
 
@@ -64,6 +70,31 @@ export default new class ChangeCharacter {
         image.style = `background-image: ${newImage};`;
         element.src = newElement;
         parent.dataset.name = target.dataset.name;   
+        
+        const redex = /\/[a-zA-z0-9\/.]{0,}/;
+        const getUrlimaga = newImage.match(redex)[0];
+
+        return {
+            name: newName,
+            element: newElement,
+            images: {small: getUrlimaga}
+        }
     }
 
+}
+
+async function saveCard(id, newCard) {
+    try {
+
+        const response = await createFetch(
+            '/api/profile/updateStand',
+            {
+                newCard,
+                id
+            }
+        );
+        showUserMesage(response.message, 'succes');        
+    } catch (error) {
+        showUserMesage(error.message, 'error');        
+    }
 }

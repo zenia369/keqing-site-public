@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="pages/login/styles/style.css" type="text/css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js" integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <main>
@@ -17,10 +18,10 @@
                 <h2 class="content__title_h">Keqing</h2>
                 <p class="content__title_p">welcome to me home</p>
             </div>
-            <form id="form" action="#" class="content__form">
+            <form id="form" class="content__form">
                 <input type="email" placeholder="Email" minlength="6" id="email" required>
                 <input type="password" placeholder="Password" minlength="6" maxlength="6" id="password" required>
-                <input type="submit" value="Log in">
+                <button id="btn-form" type="submit">Log in</button>
             </form>
             <div class="content__another">
                 <p>or</p>

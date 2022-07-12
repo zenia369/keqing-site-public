@@ -2,12 +2,13 @@ const Router = require('express');
 const router = Router();
 const Path = require('path');
 
+const securedUserRouter = require('../middlewares/securedUserRouter');
 
 const Wife = require('../service/wifeService');
 const db = require('../service/fireStoreService');
 
 
-router.get('/characters/:name', (req, res) => {
+router.get('/characters/:name', securedUserRouter, (req, res) => {
     const name = req.params.name ?? 'keqing';
 
     Promise.all([ db.getData('characters', `${name}`), Wife.getPathImg(name)])
@@ -16,7 +17,6 @@ router.get('/characters/:name', (req, res) => {
         if(props[1].images.length === 0 ) {
             throw Error('Error in search character...');
         } else {
-
             res.render('wife', {
                 layout: 'layout-wife',
                 ...props[0],
@@ -25,7 +25,7 @@ router.get('/characters/:name', (req, res) => {
         }
     })
     .catch(e => {
-        console.warn("Error in send character:", e);
+        console.warn("Error in send character:", e.message);
         res.status(500).sendFile(Path.resolve(__dirname, '../public/pages/error/'))
     });
         

@@ -57,7 +57,7 @@ main {
                 border-bottom: 3px solid #ECCFF1;
                 padding: 5px;
             }
-            input[type="submit"] {
+            button[type="submit"] {
                 margin-top: 40px;
                 width: 205px;
                 height: 50px;
@@ -69,6 +69,9 @@ main {
                 transition: background .3s ease-in;
                 &:hover {
                     background: darken($color: #EFA3F5, $amount: 30);
+                }
+                &:disabled {
+                    cursor: no-drop;
                 }
             }
         }

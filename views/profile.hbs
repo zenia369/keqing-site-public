@@ -55,7 +55,7 @@
                 >
                   <div
                     class="main__first__section__card__wrapper__image-wrapper__border-content"
-                    style="background-image: url({{user.avatart}});"
+                    style="background-image: url({{user.avatar}});"
                   ></div>
                 </div>
               </div>
@@ -73,10 +73,11 @@
                     <li 
                       class="main__first__section__info__wrapper__card"
                       data-name="{{this.name}}"
+                      data-id="{{@index}}"
                     >
                       <div 
                           class="main__first__section__info__wrapper__card__main"
-                          style="background-image: url({{this.images.[74]}});"
+                          style="background-image: url({{this.images.small}});"
                           id="image"
                       >
                         <img id="element" src="{{this.element}}" alt="Element {{this.name}}" />
@@ -103,159 +104,58 @@
                 <i class="fa-solid fa-xmark"></i>
               </button>
           </div>
-          <button class="btn-edit-gallery">
-            редагувати
-            <i class="fa-solid fa-pen"></i>
-          </button>
+          {{#if user.favorites}}
+            <button class="btn-edit-gallery">
+              редагувати
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            {{else}}
+            <button class="d-none btn-edit-gallery">
+              редагувати
+              <i class="fa-solid fa-pen"></i>
+            </button>
+          {{/if}}
         </div>
-        <ul class="gallery_wrapp">
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-17-33.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-17-33.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-17-40.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-17-40.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-17-48.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-17-48.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-17-52.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-17-52.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-17-56.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-17-56.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-17-59.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-17-59.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-03.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-03.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-06.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-06.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-09.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-09.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-13.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-13.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-17.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-17.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-20.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-20.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-24.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-24.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>   
-            <li>
-                <label class="container">
-                    <input type="checkbox">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    <i class="fa-solid fa-circle-check"></i>
-                </label>
-                <a href="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Ffull-size-image%2Fphoto_2022-02-25_20-18-27.jpg?alt=media&amp;token" target="_blank">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fraiden%2Fimage%2Fphoto_2022-02-25_20-18-27.jpg?alt=media&amp;token" alt="keqing-site-image">
-                </a>
-            </li>     
-        </ul>
-        <div class="gallery_preload" id="gallery_preload">
-          <button>
-            завантажити ще
-          </button>
-          <div class="lds-heart active-preload"><div></div></div>
-        </div>
+
+        {{#if user.favorites}}
+            <ul class="gallery_wrapp">
+              {{#each user.favorites}}
+                <li>
+                  <label class="container">
+                      <input type="checkbox">
+                      <i class="fa-solid fa-circle-dot"></i>
+                      <i class="fa-solid fa-circle-check"></i>
+                  </label>
+                  <a href="{{this.bigLink}}" target="_blank">
+                      <img src="{{this.link}}" alt="keqing-site-image">
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+        {{/if}}
+
+        {{#if user.favorites}}
+          <div class="gallery_preload" id="gallery_preload">
+            <button>
+              завантажити ще
+            </button>
+            <div class="lds-heart active-preload"><div></div></div>
+          </div>
+        {{else}}
+          <div class="d-none gallery_preload" id="gallery_preload">
+            <button>
+              завантажити ще
+            </button>
+            <div class="lds-heart active-preload"><div></div></div>
+          </div>
+          <div class="gallery_empty">
+            <h3>Поки нічого не побачив</h3>
+            <a href="/myWife">
+              обери
+            </a>
+          </div>
+        {{/if}}
+        
       </section>
     </main>
 
@@ -284,10 +184,10 @@
                 {{#each charactersList}}
                     <li 
                       class="cart-characters-wrapp__cards__user-item"
-                      data-src={{this.images.[106]}}
+                      data-src={{this.images.big}}
                       data-card={{this.card}}
                     >
-                        <img src={{this.images.[106]}} alt="For card {{this.name}}">
+                        <img src={{this.images.big}} alt="For card {{this.name}}">
                     </li>   
                 {{/each}}
             </ul>
@@ -301,7 +201,7 @@
                     >
                         <div 
                             class="cart-characters-wrapp__cards__characters__card-main"
-                            style="background-image: url({{this.images.[74]}});"
+                            style="background-image: url({{this.images.small}});"
                             id="image"
                         >
                           <img id="element" src={{this.element}} alt="Element {{this.name}}" />

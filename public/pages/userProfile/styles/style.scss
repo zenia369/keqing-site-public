@@ -7,12 +7,20 @@
     box-sizing: border-box;
     
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FimageBackground%2Fkeqing-hung-out.jpg?alt=media&token=4fb0156e-2f0a-4b81-abec-b04b3598d947);
-    background-size: contain;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     backdrop-filter: brightness(0.7);
+    @extend .scroll-style;
+    overflow: overlay;
 }
 a {
     font-family: 'Open Sans', sans-serif;
@@ -23,6 +31,23 @@ main {
     width: 100%;
     min-height: 100vh;
     padding: 0 50px;
+}
+
+.scroll-style {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 1555, .5) transparent;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(192, 168, 197, 0.5);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(198, 100, 215, .5);
+        border-radius: 20px;
+        border: transparent;
+    }
 }
 
 .header {
@@ -57,6 +82,7 @@ main {
         span {
             font-weight: 800;
             background: linear-gradient(to top, $white, $purple 135%);
+            background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
@@ -94,8 +120,11 @@ main {
 .main {
     &__first__section {
         display: flex;
+        justify-content: space-around;
         gap: 20px;
+        padding: 2.5rem 0;
         &__card {
+            align-self: center;
             position: relative;
             background-image: url(../images/NameCards/Namecard_Background_Kamisato_Ayaka_Folding_Fan.webp);
             background-repeat: no-repeat;
@@ -103,14 +132,13 @@ main {
             background-position: center;
             width: 35%;
             min-width: 27rem;
-            margin: 2.5rem 2.5rem 2.5rem 0;
             border: 1px solid $purpleForLink;
             height: 13rem;
             display: flex;
             gap: 2rem;
             border-radius: 10px;
             box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
-            transition: box-shadow .5s ease-in-out;
+            transition: box-shadow .5s ease-in-out, background-image 2s linear;
             &:hover {
                 box-shadow: 0px 0px 4px 0px #eccff1, 0px 0px 0px 2px #ffffff;
             }
@@ -228,25 +256,27 @@ main {
                 color: white;
                 span {
                     text-transform: capitalize;
+                    &#uid {
+                        font-size: 12px;
+                    }
                 }
             }
         }
         &__info {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             &__wrapper {
-                display: flex;
                 gap: 20px;
-                flex-wrap: wrap;
                 list-style: none;
                 width: 25rem;
-                justify-content: space-evenly;
+                display: grid;
+                justify-content: center;
+                grid-template-columns: repeat(auto-fill, 75px);
 
                 &__card {
-                    height: 6rem;
-                    width: 5rem;
+                    height: 95px;
+                    width: 74px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -271,7 +301,7 @@ main {
                             left: 3px;
                             width: 25%;
                         }
-                        &::after {
+                        &::before {
                             content: '';
                             display: block;
                             position: absolute;
@@ -286,7 +316,7 @@ main {
                     &__footer {
                         background-color: #f7f3eb;
                         color: $dark;
-                        padding: 5px 10px;
+                        padding: 5px 1px;
                         border-bottom-left-radius: 5px;
                         border-bottom-right-radius: 5px;
                         font-size: 10px;
@@ -304,6 +334,7 @@ main {
 .gallery {
     background-color: #dcabe4;
     border-radius: 5px;
+    margin-bottom: 25px;
     button {
         background-color: white;
         font-size: 15px;
@@ -331,6 +362,9 @@ main {
         color: white;
         display: flex;
         justify-content: space-between;
+        h2 {
+            font-weight: 600;
+        }
     }
     &_wrapp {
         display: flex;
@@ -344,7 +378,8 @@ main {
             flex-grow: 1;
             cursor: pointer;
             width: min-content;
-            transition: filter .5s ease-in;
+            opacity: 1;
+            transition: opacity .4s ease, transform .4s ease, filter .5s ease-in;
             &:hover {
                 filter: brightness(.7);
             }
@@ -360,20 +395,43 @@ main {
             }
         }
     }
-    &_preload {
+    &_preload, &_empty {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 10px 0;
-        margin-bottom: 10px;
+    }
+
+    &_empty {
+        h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        a {
+            text-decoration: none;
+            background-color: white;
+            font-size: 15px;
+            font-weight: lighter;
+            color: black;
+            border: 2px solid #d3a1ec;
+            padding: 10px 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color .3s ease-in, color .3s ease-in;
+    
+            &:hover {
+                background-color: #d3a1ec;
+                color: white;
+            }
+        }
     }
 
     .toggleGalleryVisible &_wrapp {
         & > li {
             position: relative;
             filter: none;
-            
             .container {
                 position: absolute;
                 display: flex;
@@ -442,6 +500,7 @@ main {
             align-items: center;
             p {
                 margin-left: 5px;
+                font-weight: 500;
             }
         }
     }
@@ -449,8 +508,10 @@ main {
 
 
 .cart-characters {
+    @extend .scroll-style;
     display: none;
     position: fixed;
+    overflow-y: scroll;
     top: 0;
     right: 0;
     bottom: 0;
@@ -469,8 +530,7 @@ main {
         max-width: 50rem;
         min-height: 33rem;
         background: white;
-        margin: 0 auto;
-        margin-top: 5rem;
+        margin: 5rem auto;
         border-radius: 10px;
         position: relative;
         i {
@@ -539,14 +599,15 @@ main {
                 padding: 10px;
                 ul {
                     list-style: none;
-                    display: flex;
                     gap: 15px;
-                    flex-wrap: wrap;
+                    display: grid;
+                    justify-content: center;
+                    grid-template-columns: repeat(auto-fill, 75px);
                 }
             }
             &__user {
                 ul {
-                    // justify-content: center;
+                    grid-template-columns: repeat(auto-fill, 105px);
                 }
                 &-item {
                     cursor: pointer;
@@ -580,8 +641,8 @@ main {
             }
             &__characters {
                 &__card {
-                    height: 6rem;
-                    width: 5rem;
+                    height: 95px;
+                    width: 75px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -610,12 +671,12 @@ main {
                             left: 3px;
                             width: 25%;
                         }
-                        &::after {
+                        &::before {
                             content: '';
                             display: block;
                             position: absolute;
                             bottom: -1px;
-                            right: 0;
+                            right: -.5%;
                             width: 15px;
                             height: 15px;
                             background-color: #f7f3eb;
@@ -625,7 +686,7 @@ main {
                     &-footer {
                         background-color: #f7f3eb;
                         color: $dark;
-                        padding: 5px 10px;
+                        padding: 5px 1px;
                         border-bottom-left-radius: 5px;
                         border-bottom-right-radius: 5px;
                         font-size: 10px;
@@ -641,6 +702,82 @@ main {
 //TOGGLE CLASS
 .active-preload {
     display: none !important;
+}
+
+//tostify-css
+.toastify {
+    padding: 12px 20px;
+    color: #ffffff;
+    display: inline-block;
+    box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
+    background: -webkit-linear-gradient(315deg, #73a5ff, #5477f5);
+    background: linear-gradient(135deg, #73a5ff, #5477f5);
+    position: fixed;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    max-width: calc(50% - 20px);
+    z-index: 2147483647;
+}
+
+.toastify-sticky {
+    position: sticky;
+}
+
+.toastify.on {
+    opacity: 1;
+}
+
+.toast-close {
+    opacity: 0.4;
+    padding: 0 5px;
+}
+
+.toastify-right {
+    right: 15px;
+}
+
+.toastify-left {
+    left: 15px;
+}
+
+.toastify-top {
+    top: -150px;
+}
+
+.toastify-bottom {
+    bottom: -150px;
+}
+
+.toastify-rounded {
+    border-radius: 25px;
+}
+
+.toastify-avatar {
+    width: 1.5em;
+    height: 1.5em;
+    margin: -7px 5px;
+    border-radius: 2px;
+}
+
+.toastify-center {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    max-width: fit-content;
+}
+
+@media only screen and (max-width: 360px) {
+    .toastify-right, .toastify-left {
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        max-width: fit-content;
+    }
 }
 
 //LOADER
