@@ -4,7 +4,9 @@ const emojiImg = document.querySelector('.reactMS').children;
 const input = document.getElementById('floatingInputValue');
 
 
-
+(() => {
+    getAvatar();
+})()
 
 btn.addEventListener('click', sendMessage);
 input.addEventListener('input', () => {
@@ -13,6 +15,12 @@ input.addEventListener('input', () => {
 })
 
 
+function getAvatar() {
+    const src = localStorage.getItem('avatarSrc');
+    const avatar = document.querySelector('.containerBar-list__img');
+  
+    avatar.style = `background-image: url(${src})`;
+}
 
 async function sendMessage(event) {
     const textMessage = document.getElementById('floatingTextarea2');

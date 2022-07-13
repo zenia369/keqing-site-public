@@ -35,7 +35,8 @@ const {
 
 import Avatar from './modules/changeAvatar';
 const {
-    activeSetNewAvatar
+    activeSetNewAvatar,
+    saveAvatarSrc
 } = Avatar;
 
 import ChangeCharacter from './modules/changeCharacter';
@@ -80,4 +81,10 @@ btnEditGallery.addEventListener('click', (e) => {
     e.target.disabled = true;
 
     activeEditMode();
+});
+
+document.addEventListener('load', () => {
+    const avatar = document.querySelector('.main__first__section__card__wrapper__image-wrapper__border-content');
+    const src = avatar.getAttribute('background-image');
+    saveAvatarSrc(src);
 });

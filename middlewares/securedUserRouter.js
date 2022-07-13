@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
     
         const {uid} = await auth.verifySessionCookie(sessionCookie, true);
         if(!uid) throw Error()
-
+        
         if(uid !== reqUid) throw Error()
 
         next();

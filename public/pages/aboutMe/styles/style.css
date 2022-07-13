@@ -111,9 +111,13 @@ h1, h2, h3, h4, a, p, body, ul, li, ol, span, img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fkeqing%2Ffull-size-image%2Fphoto_2021-12-24_22-07-25.jpg?alt=media&token);
   background-size: cover;
   cursor: pointer;
+  background: #fa8c38c9;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2Fmain%2Fimage%2FCharacter_Aether_Thumb.webp?alt=media&token=a68d0421-1d99-4ae3-8b8d-14671eb235e9);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
@@ -247,3 +251,4 @@ h1, h2, h3, h4, a, p, body, ul, li, ol, span, img {
 .footer__wrapper-text p {
   margin-left: 5px;
 }
+/*# sourceMappingURL=style.css.map */

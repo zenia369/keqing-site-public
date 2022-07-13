@@ -25,6 +25,11 @@ export default new class Avatar {
         list.addEventListener('click', choosedAvatar);
     }
 
+    saveAvatarSrc(src) {
+        queueMicrotask(() => {
+            localStorage.setItem('avatarSrc', src);
+        })
+    }
 }
 
 function choosedAvatar(e) {
@@ -71,6 +76,8 @@ async function changeCard(e) {
     }).then(() => {
         card.style = `background-image: url(${newCard});`
         avatar.style = `background-image: url(${newAvatar});`
+    }).then(() => {
+        localStorage.setItem('avatarSrc', newAvatar);
     })
     .catch(() => {
         showUserMesage('Erro loading new avatar', 'error');  

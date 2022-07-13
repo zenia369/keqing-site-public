@@ -1,16 +1,19 @@
 const warapperGallery = document.querySelector('.section-2__wrapper-gallery__listWrapp-box__list');
 const galleryBox = document.querySelector('.section-2__wrapper-gallery');
 const list = document.querySelector('.section-2__wrapper-gallery__listWrapp-box__list');
-let isScrolling = false;
 const loader = document.getElementById('loader');
 
+let isScrolling = false; 
 
-window.onload = function() {
- 
-   galerry();
-   window.addEventListener("scroll", throttleScroll, false);
-   document.addEventListener("DOMContentLoaded", scrolling, false);
-}
+(() => {
+  getAvatar();
+})()
+
+window.addEventListener('load', () => {
+  galerry();
+  window.addEventListener("scroll", throttleScroll, false);
+  document.addEventListener("DOMContentLoaded", scrolling, false);
+})
 
 async function galerry() {
   const response = await fetch("/api/home-image");
@@ -31,9 +34,6 @@ function createElementGallery(gallerySrc) {
   
 }
 
- 
-
-
 function throttleScroll(e) {
   if (isScrolling == false) {
     window.requestAnimationFrame(function() {
@@ -45,8 +45,10 @@ function throttleScroll(e) {
 }
 function scrolling() {
     if (isFullyVisible(galleryBox)) {
-      list.classList.add('section-2__wrapper-gallery__listWrapp-box__list-active')
-    } 
+      list.classList.add('section-2__wrapper-gallery__listWrapp-box__list-active');
+    } else {
+      list.classList.remove('section-2__wrapper-gallery__listWrapp-box__list-active');
+    }
 }
 function isFullyVisible(el) {
     let elementBoundary = el.getBoundingClientRect();
@@ -56,6 +58,12 @@ function isFullyVisible(el) {
     return ((top >= 0) && (bottom <= window.innerHeight));
 }
 
+function getAvatar() {
+  const src = localStorage.getItem('avatarSrc');
+  const avatar = document.querySelector('.containerBar-list__img');
+
+  avatar.style = `background-image: url(${src})`;
+}
 
 function preloadImages(sources) {
   Promise.all(sources.map(src => {

@@ -1,9 +1,13 @@
-
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -43,8 +47,8 @@ a {
 }
 
 .section-2__wrapper-gallery__listWrapp-box__list-active {
-  -webkit-animation: 9s linear .5s infinite alternate scroll;
-          animation: 9s linear .5s infinite alternate scroll;
+  -webkit-animation-play-state: running !important;
+          animation-play-state: running !important;
 }
 
 .container-div {
@@ -150,9 +154,13 @@ a {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/characters%2Fkeqing%2Ffull-size-image%2Fphoto_2021-12-24_22-07-25.jpg?alt=media&token);
   background-size: cover;
   cursor: pointer;
+  background: #fa8c38c9;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2Fmain%2Fimage%2FCharacter_Aether_Thumb.webp?alt=media&token=a68d0421-1d99-4ae3-8b8d-14671eb235e9);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
@@ -303,6 +311,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-animation: 9s linear .5s infinite alternate scroll;
+          animation: 9s linear .5s infinite alternate scroll;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 
 .section-2__wrapper-gallery__btn {
@@ -620,3 +632,4 @@ a {
     opacity: 0;
   }
 }
+/*# sourceMappingURL=style.css.map */

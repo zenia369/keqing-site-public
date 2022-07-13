@@ -3,7 +3,7 @@ const router = Router();
 
 const db = require('../../../service/fireStoreService');
 
-router.put('/addFavoritePhoto', async (req, res) => {
+router.put('/addFavoritePhoto' ,async (req, res) => {
     try {
         const {uid, bigLink, link} = req.body;
 
