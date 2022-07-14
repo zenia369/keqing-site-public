@@ -14,9 +14,10 @@ router.post('/registration', async (req, res) => {
         await db.createUserData({uid, ...body});
 
         res.cookie('session', sessionCookie, options);
-        res.status(200).send(JSON.stringify(uid));
+        res.status(200).send(JSON.stringify({uid}));
     
     } catch (error) {
+        console.log(error);
         res.status(401).end(JSON.stringify({message: 'user exist, try another email'}))
     }
 

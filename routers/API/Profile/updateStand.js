@@ -6,7 +6,7 @@ const db = require('../../../service/fireStoreService');
 router.put('/updateStand', async (req, res) => {
     try {
         const {uid, newCard, id} = req.body;
-
+        
         await db.changeUserDataStand({newCard, id}, uid);
     
         res.status(200).send(JSON.stringify({message: 'stand update'}))

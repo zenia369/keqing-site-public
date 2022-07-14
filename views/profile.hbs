@@ -10,6 +10,13 @@
     </nav>
 
     <main>
+      <section class="futures">
+        <div class="futures__btns">
+          <a href="/logout" class="futures__btns__logout">
+            Log out
+          </a>
+        </div>
+      </section>
       <section class="main">
         <div class="main__first__section">
           <div 
@@ -135,7 +142,7 @@
         {{/if}}
 
         {{#if user.favorites}}
-          <div class="gallery_preload" id="gallery_preload">
+          <div class="d-none gallery_preload" id="gallery_preload">
             <button>
               завантажити ще
             </button>

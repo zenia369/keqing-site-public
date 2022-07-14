@@ -138,8 +138,9 @@ a {
   background-color: #e698f0;
   -webkit-clip-path: polygon(80% 80%, 0 80%, 0 100%, 100% 100%, 100% 0, 80% 0);
           clip-path: polygon(80% 80%, 0 80%, 0 100%, 100% 100%, 100% 0, 80% 0);
-  right: 0;
+  right: 35px;
   bottom: 0;
+  z-index: -2;
   -webkit-filter: blur(30px);
           filter: blur(30px);
 }
@@ -317,7 +318,7 @@ a {
   left: 0;
   bottom: 0;
   visibility: hidden;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   background-color: #dbceff;
   height: 100vh;
@@ -325,12 +326,13 @@ a {
   -webkit-transform: translateY(500px);
           transform: translateY(500px);
   opacity: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 255, 0.5) transparent;
   -webkit-transition: opacity .6s linear, visibility 1s linear, -webkit-transform .7s linear;
   transition: opacity .6s linear, visibility 1s linear, -webkit-transform .7s linear;
   transition: opacity .6s linear, transform .7s linear, visibility 1s linear;
   transition: opacity .6s linear, transform .7s linear, visibility 1s linear, -webkit-transform .7s linear;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(155, 155, 255, 0.5) transparent;
 }
 
 .three-screen::-webkit-scrollbar {
@@ -461,7 +463,6 @@ a {
   display: inline-block;
   -webkit-box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
           box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
-  background: linear-gradient(135deg, #73a5ff, #5477f5);
   position: fixed;
   opacity: 0;
   -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);

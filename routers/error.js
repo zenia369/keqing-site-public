@@ -3,7 +3,7 @@ const router = Router();
 const fs = require('fs');
 const Path = require('path');
 
-router.get('*', (req, res) => {
+router.all('*', (req, res) => {
     const fileName = Path.resolve(__dirname, `../public${req.url}`);
 
     if (!fs.existsSync(fileName)) {

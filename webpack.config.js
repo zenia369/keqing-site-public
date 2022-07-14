@@ -27,4 +27,4 @@ const configRegistration = {
   },
 }
 
-module.exports = configProfile
+module.exports = configRegistration

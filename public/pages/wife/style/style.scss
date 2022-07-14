@@ -80,30 +80,31 @@ a {
                 justify-content: center;
                 align-items: center;
                 padding-right: 35px;
-            }
-            &__wrappMain::before {
-                position: absolute;
-                content: '';
-                display: block;
-                width: 50px;
-                height: 50px;
-                background-color: #e698f0;
-                clip-path: polygon(0 0, 0 54%, 0 100%, 20% 100%, 20% 20%, 100% 20%, 100% 0, 50% 0);
-                filter: blur(30px);
-                top: 0;
-                left: 0;
-            }
-            &__wrappMain::after {
-                position: absolute;
-                content: '';
-                display: block;
-                width: 50px;
-                height: 50px;
-                background-color: #e698f0;
-                clip-path: polygon(80% 80%, 0 80%, 0 100%, 100% 100%, 100% 0, 80% 0);
-                right: 0;
-                bottom: 0;
-                filter: blur(30px);
+                &::before {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    background-color: #e698f0;
+                    clip-path: polygon(0 0, 0 54%, 0 100%, 20% 100%, 20% 20%, 100% 20%, 100% 0, 50% 0);
+                    filter: blur(30px);
+                    top: 0;
+                    left: 0;
+                }
+                &::after {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    background-color: #e698f0;
+                    clip-path: polygon(80% 80%, 0 80%, 0 100%, 100% 100%, 100% 0, 80% 0);
+                    right: 35px;
+                    bottom: 0;
+                    z-index: -2;
+                    filter: blur(30px);
+                }
             }
         }
     }
@@ -228,16 +229,17 @@ a {
     left: 0;
     bottom: 0;
     visibility: hidden;
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     background-color: rgba(219, 206, 255, 1);
     height: 100vh;
     overflow: auto;
     transform: translateY(500px);
     opacity: 0;
-    transition: opacity .6s linear, transform .7s linear, visibility 1s linear;
+    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: rgba(155, 155, 1555, .5) transparent;
+    transition: opacity .6s linear, transform .7s linear, visibility 1s linear;
     &::-webkit-scrollbar {
         width: 10px;
     }

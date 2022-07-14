@@ -51,6 +51,10 @@ router.get('/registration', (req, res) => {
     res.sendFile(fileName);
 })
 
+router.get('/logout', (req, res) => {
+    res.clearCookie("session");
+    res.redirect('/')
+})
 
 
 

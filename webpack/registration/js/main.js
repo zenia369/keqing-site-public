@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
             target.querySelector('#email').focus();
 
             Toastify({
-                text: error.message,
+                text: error.message ?? 'server error: null',
                 duration: 4000,
                 close: true,
                 gravity: "bottom",
