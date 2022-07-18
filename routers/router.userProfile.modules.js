@@ -9,8 +9,6 @@ router.get('/userProfile', securedUserRouter, async (req, res) => {
     try {
         const {uid} = req.query;
 
-        if(!uid) throw Error()
-
         const user = await db.getUserData(uid);
         if(!user) throw Error()
 

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "wbp-dev": "concurrently --kill-others \"webpack --watch\" \"npm run start\""
+    "wbp-dev": "concurrently --kill-others \"webpack --mode production\" \"npm run start\""
   },
   "keywords": [
     "Keqing",

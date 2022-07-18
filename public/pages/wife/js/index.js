@@ -111,8 +111,8 @@ btnNextScreen.addEventListener('click', upScreen);
 btnPreviousScreen.addEventListener('click', downScreen);
 
 window.addEventListener('load', () => {
-    document.querySelector('.container').classList.remove('visibility')
-    document.querySelector('.load-page').classList.add('visibility');
+    [...document.querySelectorAll('.load-content')].forEach(el => el.classList.remove('visibility'));
+    [...document.querySelectorAll('.load-page')].forEach(el => el.classList.add('visibility'));
 })
 
 const imageAction = new ImageAction();
