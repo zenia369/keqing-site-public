@@ -1,0 +1,1 @@
+(()=>{"use strict";!function(){const t=localStorage.getItem("avatarSrc");document.querySelector(".containerBar-list__img").style=`background-image: url(${t})`}()})();

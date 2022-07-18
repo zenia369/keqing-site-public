@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "wbp-dev": "concurrently --kill-others \"webpack --watch\" \"npm run start\""
+    "wbp-dev": "concurrently --kill-others \"webpack --mode production\" \"npm run start\""
   },
   "keywords": [
     "Keqing",
@@ -18,7 +18,14 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.2.1",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "glob": "^8.0.3",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.1",
     "nodemon": "^2.0.12",
+    "sass-loader": "^13.0.2",
     "toastify-js": "^1.11.2",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
