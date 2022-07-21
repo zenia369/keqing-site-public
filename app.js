@@ -12,7 +12,8 @@ const serviceAccount = require('./data/serviceAccountKey');
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: process.env.FIREBASE_DATABASE_URL
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    storageBucket: process.env.FIREBASE_BUCKET_NAME
 });
 
 
@@ -32,7 +33,7 @@ const csrufSecure = csurf({cookie: true});
 const PORT = process.env.PORT ?? 5000;
 
 
-app.use(express.static(Path.join(__dirname, './public')));
+app.use(express.static(Path.join(__dirname, 'public')));
 
 const hbs = exphbs.create({
     defaultLayout: 'layout',
