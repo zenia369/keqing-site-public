@@ -1,0 +1,145 @@
+@import '__variables.scss';
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  overflow-y: overlay;
+}
+
+.header {
+  margin-top: 50px;
+  margin-left: 70px;
+  &__title {
+      font-size: 36px;
+      background: linear-gradient(to top, $white, $purple 135%);
+      -webkit-background-clip: text;
+      color: transparent;
+  }
+}
+
+
+.cardList {
+  margin-left: 55px;
+  margin-top: 45px;
+  font-family: 'Montserrat', sans-serif;
+  &-card {
+      border: 0.5px solid $silver;
+      border-radius: 30px;
+      height: 300px;
+      width: 80%;
+      margin-bottom: 25px;
+      box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+      &__title {
+          margin-top: 15px;
+          margin-left: 20px;
+          font-size: 30px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          a {
+            text-decoration: none;
+            color: $purple;
+          }
+          &-img {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            margin-left: 10px;
+          }
+          
+      }
+
+      &__ul {
+          display: flex;
+          flex-direction: row;
+          text-decoration: none;
+          list-style: none;
+          margin: 20px 10px;
+          overflow: hidden;
+          column-gap: 10px;
+          padding-bottom: 5px;
+          &::-webkit-scrollbar {
+            width: 2px;
+          }
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: rgba(240, 155, 255, .5);
+            border-radius: 20px;
+            border: transparent;
+          }
+
+         > li {
+          > div {
+            width: 127px;
+            height: 180px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 10px;
+            position: relative;
+            >.link {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              z-index: 1;
+              background: black;
+              opacity: 0;
+              display: flex;
+              justify-content: center;
+              text-align: center;
+              align-items: center;
+              border-radius: 10px;
+              transition: all 0.3s ease;
+              a {
+                text-decoration: none;
+                color: $white;
+              }
+            }
+          }
+        }
+        >li:hover {
+          .link{
+            opacity: 0.6;
+            font-size: 20px;
+          }
+        }
+      }
+      &__ul:hover {
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(240, 155, 255, .5) transparent;
+      }
+  }
+}
+.animation-item {
+  animation: fadeInUp; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s; /* don't forget to set a duration! */
+}
+
+//spinner
+.spinner-grow {
+  display: inline-block;
+  vertical-align: -0.125em;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  animation: .75s linear infinite spinner-grow;
+  width: 3rem; 
+  height: 3rem; 
+  color: rgb(231, 208, 255); 
+  position: absolute; 
+  top:50%; 
+  left: 50%;
+}
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+}
